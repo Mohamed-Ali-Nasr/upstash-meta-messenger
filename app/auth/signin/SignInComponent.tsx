@@ -9,7 +9,7 @@ type Props = {
 const SignInComponent = ({ providers }: Props) => {
   return (
     <div className="flex justify-center">
-      {Object.values(providers! as Object).map((provider) => (
+      {Object.values(providers!).map((provider) => (
         <div key={provider.id}>
           <button
             className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
