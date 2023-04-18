@@ -9,15 +9,11 @@ type Props = {
 const SignInComponent = ({ providers }: Props) => {
   return (
     <div className="flex justify-center">
-      {Object.values(providers!).map((provider) => (
-        <div key={provider.name}>
+      {Object.values(providers! as Object).map((provider) => (
+        <div key={provider.id}>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() =>
-              signIn(provider.id, {
-                callbackUrl: process.env.VERCEL_URL || "http://localhost:3000",
-              })
-            }
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            onClick={() => signIn(provider.id, { callbackUrl: "/" })}
           >
             Sign In With {provider.name}
           </button>

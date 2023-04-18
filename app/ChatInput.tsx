@@ -12,13 +12,17 @@ import Picker from "@emoji-mart/react";
 import { Skin } from "@emoji-mart/data";
 
 interface Props {
-  session: Session | null;
+  session: Session;
 }
 
 const ChatInput = ({ session }: Props) => {
   const [input, setInput] = useState("");
   const [showEmojis, setShowEmojis] = useState(false);
-  const { data: messages, error, mutate } = useSWR("/api/getMessages", fetcher);
+  const {
+    data: messages,
+    error,
+    mutate,
+  } = useSWR<Message[]>("/api/getMessages", fetcher);
 
   const addEmoji = (e: Skin) => {
     const sym: string[] = e.unified.split("-");
@@ -71,9 +75,9 @@ const ChatInput = ({ session }: Props) => {
   return (
     <form
       onSubmit={addMessage}
-      className="fixed bottom-0 z-50 flex w-full px-10 py-5 space-x-2 border-t border-gray-500 bg-white"
+      className="fixed bottom-0 z-50 flex w-full px-10 py-5 space-x-2 bg-white border-t border-gray-500"
     >
-      <div className="w-full flex items-end p-2 rounded-sm relative">
+      <div className="relative flex items-end w-full p-2 rounded-sm">
         <input
           type="text"
           value={input}

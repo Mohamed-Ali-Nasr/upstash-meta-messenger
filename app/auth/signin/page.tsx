@@ -11,7 +11,7 @@ const SignInPage = async (props: Props) => {
     <div className="grid justify-center">
       <div>
         <Image
-          className="rounded-full mx-2 object-cover"
+          className="object-cover mx-2 rounded-full"
           width={700}
           height={700}
           src="https://links.papareact.com/161"
@@ -23,5 +23,7 @@ const SignInPage = async (props: Props) => {
     </div>
   );
 };
+
+
 
 export default SignInPage;
